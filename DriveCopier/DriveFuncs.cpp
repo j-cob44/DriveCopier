@@ -15,9 +15,8 @@
 
 #define Bytes_To_MB 1048576
 
-// Global Drive Info Retrieval Function
-std::vector<DriveInfo> DF_DrivesInfo()
-{
+// Drive Info : Returns drive info from all drives (Letter, Type, Size, Free Space)
+std::vector<DriveInfo> DF_DrivesInfo() {
     std::vector< DriveInfo > AllDriveInfo;
 
 
@@ -127,7 +126,7 @@ bool DF_ListNextDirectory(std::string dirName) {
     return true;
 }
 
-// Copy Next Directory: Iterates through all files and Directories Recursively
+// Copy Next Directory : Iterates through all files and Directories Recursively
 bool DF_CopyNextDirectory(std::string dirName, char toDriveLetter) {
     LPCSTR lp_fromRoot = dirName.c_str();
 
