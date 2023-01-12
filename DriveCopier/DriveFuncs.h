@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <tchar.h>
+#include <stdio.h>
 
 // Drive Functions
 
@@ -20,4 +22,5 @@
 	} dInfo;
 
 	std::vector<DriveInfo> DF_DrivesInfo();
+	bool DF_DriveList(char fromDriveLetter);
 #endif // !DiscFuncs
