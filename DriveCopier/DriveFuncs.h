@@ -24,6 +24,8 @@
 	} dInfo;
 
 	std::vector<DriveInfo> DF_DrivesInfo();
-	bool DF_DriveList(char fromDriveLetter);
-	bool DF_DriveCopy(char fromDriveLetter, char toDriveLetter);
+
+	bool DF_ListNextDirectory(std::string dirName);
+
+	bool DF_CopyNextDirectory(std::string dirName, char toDriveLetter);
 #endif // !DiscFuncs

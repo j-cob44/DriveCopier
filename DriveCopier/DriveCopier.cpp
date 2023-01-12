@@ -74,7 +74,10 @@ void listDriveData() {
 
     char confirmation = toupper(input[0]);
     if (confirmation == 'Y') {
-        bool result = DF_DriveList(fromDrive);
+        // Create root string
+        char fromDriveRoot[5] = { fromDrive, ':', '/', '*', '\0' };
+
+        bool result = DF_ListNextDirectory(fromDriveRoot);
         return;
     }
     else if (confirmation == 'N') {
@@ -167,7 +170,10 @@ void copyDrive() {
         // continue
         std::cout << "\nCopying the drives.\n";
 
-        bool result = DF_DriveCopy(fromDrive, toDrive);
+        // Create root strings
+        char fromDriveRoot[5] = { fromDrive , ':', '/', '*', '\0' };
+
+        bool result = DF_CopyNextDirectory(fromDriveRoot, toDrive);
         return;
     }
     else if (confirmation == 'N') {
