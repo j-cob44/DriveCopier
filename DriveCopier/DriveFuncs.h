@@ -9,8 +9,10 @@
 #include <iostream>
 #include <tchar.h>
 #include <stdio.h>
+#include <fstream>
+#include <filesystem>
 
-// Drive Functions
+// Global Drive Functions
 
 #ifndef DriveFuncs
 #define DriveFuncs
@@ -23,4 +25,5 @@
 
 	std::vector<DriveInfo> DF_DrivesInfo();
 	bool DF_DriveList(char fromDriveLetter);
+	bool DF_DriveCopy(char fromDriveLetter, char toDriveLetter);
 #endif // !DiscFuncs

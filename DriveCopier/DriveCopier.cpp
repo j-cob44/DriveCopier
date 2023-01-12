@@ -3,11 +3,11 @@
 
 #include <Windows.h>
 #include <iostream>
-
-#include "DriveFuncs.h"
 #include <vector>
 #include <stdio.h>
 #include <cctype>
+
+#include "DriveFuncs.h"
 
 std::vector< DriveInfo > validDrives;
 std::vector<char> validLetters;
@@ -89,7 +89,6 @@ void listDriveData() {
     }
 }
 
-// TODO:
 // User Action 3: Copy Drive to New Drive
 void copyDrive() {
     std::string input = "0";
@@ -168,8 +167,7 @@ void copyDrive() {
         // continue
         std::cout << "\nCopying the drives.\n";
 
-        // TODO:
-        //bool result = DF_DriveCopy(fromDrive, toDrive);
+        bool result = DF_DriveCopy(fromDrive, toDrive);
         return;
     }
     else if (confirmation == 'N') {
@@ -193,6 +191,7 @@ int main()
         std::cout << "\nChoose an Action:\n";
         std::cout   << "1. List Drive Info\n"
                     << "2. List All Data on Drive\n"
+                    << "3. Copy Drive Data to New Drive\n"
                     << "q. Quit\n\n";
 
         std::cin >> input;
@@ -203,6 +202,9 @@ int main()
                 break;
             case '2':
                 listDriveData();
+                break;
+            case '3':
+                copyDrive();
                 break;
             case 'q':
                 break;
