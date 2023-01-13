@@ -1,4 +1,4 @@
-// DriveFunctions.cpp :
+// DriveFunctions.cpp : DriveFunction Class implementation
 // Jacob Burton - January 2023
 
 #include <Windows.h>
@@ -116,7 +116,7 @@ bool DriveFunctions::ListAllDirectories(string directoryName) {
 
                     // Correct Formatting
                     thisDirectoryectory += '/';
-                    rootDirectoryectory.insert(rootDirectoryectory.length() - 1, thisDirectoryectory); // combine root path and foldername
+                    rootDirectoryectory.insert(rootDirectoryectory.length() - 1, thisDirectoryectory); // Combine root path and foldername
 
                     ListAllDirectories(rootDirectoryectory); // Recursive
                 }
@@ -239,6 +239,5 @@ DriveFunctions::DriveFunctions() {
         this->validLetters.push_back(validDrives[i].driveLetter); 
     }
 }
-
 
 } // end namespace

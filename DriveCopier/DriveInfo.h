@@ -1,5 +1,6 @@
-// DriveInfo.h
+// DriveInfo.h : Drive Info struct creation
 // Jacob Burton - Jan 2023
+
 #pragma once
 #ifndef DRIVEINFO_H_
 #define DRIVEINFO_H_
@@ -12,7 +13,7 @@ typedef struct DriveInfo {
 	int driveType;
 	__int64 totalSize;
 	__int64 freeSpace;
-};
+} DriveInfo;
 
 } // end namespace
 

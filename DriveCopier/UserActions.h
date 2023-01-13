@@ -1,4 +1,6 @@
-// UserActions.h
+// UserActions.h : Global function declarations for user actions
+// Jacob Burton - Jan 2023
+
 #pragma once
 #ifndef USERACTIONS_H_
 #define USERACTIONS_H_

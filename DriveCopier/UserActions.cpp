@@ -1,4 +1,5 @@
-// UserActions.cpp
+// UserActions.cpp : Global function implementation for user actions
+// Jacob Burton - Jan 2023
 
 #include <Windows.h>
 
@@ -52,12 +53,12 @@ void PrintDataOnDrive(DriveFunctions DriveManipulator) {
 
     // Find Drive by Letter
     if (find(validLetters.begin(), validLetters.end(), sourceDriveLetter) != validLetters.end()) {
-        // found
+        // Drive Found
         printf("\n%c Drive selected.\n", sourceDriveLetter);
 
     }
     else {
-        // invalid drive letter
+        // Invalid drive letter
         cout << "\nInvalid Drive selected.\n";
         return;
     }
@@ -74,12 +75,12 @@ void PrintDataOnDrive(DriveFunctions DriveManipulator) {
         return;
     }
     else if (confirmation == 'N') {
-        // abort
+        // Abort
         cout << "\nAction Aborted.\n";
         return;
     }
     else {
-        // error
+        // Error
         cout << "\nInvalid Input.\n";
         return;
     }
@@ -102,7 +103,7 @@ void CopyDriveToNewDrive(DriveFunctions DriveManipulator) {
 
     // Find Drive by Letter
     if (find(validLetters.begin(), validLetters.end(), sourceDriveLetter) != validLetters.end()) {
-        // found
+        // Drive Found
         printf("\n%c Drive selected.\n", sourceDriveLetter);
 
         // Get used drive space for check later
@@ -133,21 +134,22 @@ void CopyDriveToNewDrive(DriveFunctions DriveManipulator) {
     }
 
     // Find Drive by Letter
-    if (find(validLetters.begin(), validLetters.end(), sourceDriveLetter) != validLetters.end()) {
-        // Found
-        printf("\n%c Drive selected.\n", sourceDriveLetter);
+    if (find(validLetters.begin(), validLetters.end(), destinationDriveLetter) != validLetters.end()) {
+        // Drive Found
+        printf("\n%c Drive selected.\n", destinationDriveLetter);
 
         // Get Destination drive free space for check
         for (u_int i = 0; i < validDrives.size(); i++) {
-            if (validDrives[i].driveLetter == sourceDriveLetter) {
+            if (validDrives[i].driveLetter == destinationDriveLetter) {
                 destinationDriveSize = validDrives[i].freeSpace;
             }
         }
 
         // Check if Source drive is larger than the Destination drive
         if (destinationDriveSize < sourceDriveSize) {
-            // Error new drive too small
-            cout << "\nThe new drive is too small to hold the data from the old drive. Please select a drive with more total storage space than the old drive is using.\n";
+            // Error destination drive too small
+            cout << "\nThe new drive is too small to hold the data from the old drive.\n" 
+                 << "Please select a drive with more total storage space than the old drive is using.\n";
             return;
         }
     }

@@ -1,4 +1,4 @@
-// DriveCopier.cpp : Main Function
+// main.cpp : Main Function
 // Jacob Burton - Jan 2023
 
 #include <iostream>
@@ -7,12 +7,13 @@
 #include "DriveFunctions.h"
 
 int main() {
-    std::DriveFunctions DriveManipulator = std::DriveFunctions();
+    std::DriveFunctions DriveManipulator = std::DriveFunctions(); // DriveFunctions Object Initialization
 
     std::cout << "JB's Drive Copier\n";
     std::string input = "0";
 
     while (input != "q") {
+        // Actions Display
         std::cout << "\nChoose an Action:\n";
         std::cout << "1. List Drive Info\n"
             << "2. List All Data on Drive\n"
@@ -21,6 +22,7 @@ int main() {
 
         std::cin >> input;
 
+        // User Input Switch Statement
         switch (input[0]) {
         case '1':
             PrintDriveInfo(DriveManipulator.validDrives);
