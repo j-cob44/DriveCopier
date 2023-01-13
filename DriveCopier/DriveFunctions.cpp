@@ -1,4 +1,4 @@
-// DriveFunctions.cpp : DriveFunction Class implementation
+// DriveFunctions.cpp : DriveFunction Class implementations
 // Jacob Burton - January 2023
 
 #include <Windows.h>
@@ -18,9 +18,19 @@ namespace std {
 #define Bytes_To_MB 1048576
 #define Bytes_To_KB 1024
 
+// Drive Functions Constructor
+DriveFunctions::DriveFunctions() {
+    this->validDrives = GetDrivesInfo();
+
+    // Gather Valid Letters
+    for (u_int i = 0; i < validDrives.size(); i++) {
+        this->validLetters.push_back(validDrives[i].driveLetter);
+    }
+}
+
 // GetDriveInfo : Returns Drive Info stucts from all drives (Letter, Type, Size, Free Space)
 vector<DriveInfo> DriveFunctions::GetDrivesInfo() {
-	vector<DriveInfo> driveInfoResults;
+    vector<DriveInfo> driveInfoResults;
 
     DWORD driveMask = GetLogicalDrives(); // Bitmask, LSB = Drive A
 
@@ -92,7 +102,7 @@ bool DriveFunctions::ListAllDirectories(string directoryName) {
 
     // Check for Error
     if (handleFind == INVALID_HANDLE_VALUE) {
-        printf("FindFirstFile failed (%d)\n", GetLastError());
+        printf("Error Finding File at Root (%d)\n", GetLastError());
         return false; // failure, error
     }
 
@@ -141,7 +151,7 @@ bool DriveFunctions::CopyAllDirectories(string dirName, char destinationDriveLet
 
     // Check for Invalid Directory
     if (handleFind == INVALID_HANDLE_VALUE) {
-        printf("FindFirstFile failed (%d)\n", GetLastError());
+        printf("Error Finding File at Root (%d)\n", GetLastError());
         return false; // failure, error
     }
 
@@ -207,7 +217,7 @@ bool DriveFunctions::CopyAllDirectories(string dirName, char destinationDriveLet
             }
 
             // Open destination file
-            destinationFile.open(destinationPath, ofstream::out | ifstream::binary);
+            destinationFile.open(destinationPath, ofstream::out | ofstream::binary);
 
             while (sourceFile.good()) {
                 if (destinationFile.is_open()) {
@@ -230,14 +240,6 @@ bool DriveFunctions::CopyAllDirectories(string dirName, char destinationDriveLet
     } while (FindNextFile(handleFind, &findFileData) != 0);
 
     return true; // Successful
-}
-
-DriveFunctions::DriveFunctions() {
-    this->validDrives = GetDrivesInfo();
-
-    for (u_int i = 0; i < validDrives.size(); i++) {
-        this->validLetters.push_back(validDrives[i].driveLetter); 
-    }
 }
 
 } // end namespace

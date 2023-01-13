@@ -11,7 +11,7 @@
 
 namespace std {
 
-// User Action 1: List Drive Info
+// User Action 1: Print Drive Info
 void PrintDriveInfo(vector<DriveInfo> driveData) {
     cout << "\nLetter\tDrive Type\tTotal Size \tFree Space\n";
     cout << "----------------------------------------------------\n";
@@ -38,7 +38,7 @@ void PrintDriveInfo(vector<DriveInfo> driveData) {
     }
 }
 
-// User Action 2: List all Data on Drive
+// User Action 2: Print All file and folder names on drive
 void PrintDataOnDrive(DriveFunctions DriveManipulator) {
     string input = "0";
 
@@ -86,7 +86,7 @@ void PrintDataOnDrive(DriveFunctions DriveManipulator) {
     }
 }
 
-// User Action 3: Copy Drive to New Drive
+// User Action 3: Copy files and folders on Source Drive to New Drive
 void CopyDriveToNewDrive(DriveFunctions DriveManipulator) {
     string input = "0";
 
