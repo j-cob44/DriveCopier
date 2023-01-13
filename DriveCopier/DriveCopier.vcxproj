@@ -19,11 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DriveCopier.cpp" />
-    <ClCompile Include="DriveFuncs.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DriveFunctions.cpp" />
+    <ClCompile Include="UserActions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DriveFuncs.h" />
+    <ClInclude Include="DriveFunctions.h" />
+    <ClInclude Include="DriveInfo.h" />
+    <ClInclude Include="UserActions.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
