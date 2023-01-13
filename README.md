@@ -6,4 +6,6 @@ This is a prototype and currently can list drive information such as: Letter, Ty
 
 There is simple error checking to not allow a user to fit a larger set of data onto a drive of a smaller size. System files are disallowed from being moved or copied.
 
+This application works on Windows systems only.
+
 As a note: I am researching and learning as I am programming this application.
